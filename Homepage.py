@@ -2,7 +2,7 @@ import streamlit as st
 
 # Page Configuration
 st.set_page_config()
-homePage = st.Page(page="Homepage.py",default=True)
+homePage = st.Page(page="Homepage.py")
 Create = st.Page(page="Pages/Create.py")
 Merge = st.Page(page="Pages/Merge.py")
 Visualize = st.Page(page="Pages/Visualize.py")
