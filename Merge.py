@@ -38,7 +38,8 @@ if st.button("Submit", use_container_width=True):
         st.write(ogSort)
 
         # Set the Event 
-        event = attend['Event'].index[0]
+        event = str(attend['Event'].index[0])
+        st.write(event)
         newMembers=[]
         for i in range(len(attend)):
             # Creating the values
@@ -49,7 +50,7 @@ if st.button("Submit", use_container_width=True):
             # If the Member exists update with data
             if email in ogSort['WPI Email'].tolist():
                 ogSort.loc[ogSort['WPI Email'] == email, 'Points'] += 1
-                ogSort.loc[ogSort['WPI Email'] == email, 'Events Attended'] = ogSort.loc[ogSort['WPI Email'] == email, 'Events Attended'].str.cat([str(event)], sep=', ')
+                ogSort.loc[ogSort['WPI Email'] == email, 'Events Attended'] = ogSort.loc[ogSort['WPI Email'] == email, 'Events Attended'].str.cat([event], sep=', ')
             # If its a New Member create a new row and add to the new members list
             else:
                 newMembers.append(fullName)
