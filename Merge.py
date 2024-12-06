@@ -38,7 +38,7 @@ if st.button("Submit", use_container_width=True):
         st.write(ogSort)
 
         # Set the Event 
-        event = str(attend['Event'].index[0])
+        event = str(attend.loc[0,'Event'])
         st.write(event)
         newMembers=[]
         for i in range(len(attend)):
