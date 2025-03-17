@@ -30,6 +30,7 @@ if file is not None:
     barData = pd.DataFrame(list(bars.items()),columns=["Event", "Attendees"])
     barsData = barData.set_index("Event",inplace=True)
 
+    print(barData)
     st.bar_chart(barData,horizontal=True)
 
 

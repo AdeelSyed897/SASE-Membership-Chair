@@ -50,7 +50,7 @@ if st.button("Submit", use_container_width=True):
             # If the Member exists update with data
             if email in ogSort['WPI Email'].tolist():
                 ogSort.loc[ogSort['WPI Email'] == email, 'Points'] += 1
-                ogSort.loc[ogSort['WPI Email'] == email, 'Events Attended'] = ogSort.loc[ogSort['WPI Email'] == email, 'Events Attended'].str.cat([event], sep=', ')
+                ogSort.loc[ogSort['WPI Email'] == email, 'Events Attended'] = ogSort.loc[ogSort['WPI Email'] == email, 'Events Attended'].str.cat([event], sep=',')
             # If its a New Member create a new row and add to the new members list
             else:
                 newMembers.append(fullName)
