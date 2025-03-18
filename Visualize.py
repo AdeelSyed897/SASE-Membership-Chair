@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import statistics
 
-st.title("Visualize Data")
 
 # Title and file uploader
 st.title("Visualizing The Data")
