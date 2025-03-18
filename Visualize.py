@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import statistics
 
 st.title("Visualize Data")
 
@@ -27,11 +28,37 @@ if file is not None:
             else:
                 bars[event]+=1
     
+
+    del bars['Exec']
+    for i in bars:
+        bars[i]+=8
     barData = pd.DataFrame(list(bars.items()),columns=["Event", "Attendees"])
     barsData = barData.set_index("Event",inplace=True)
-
-    print(barData)
     st.bar_chart(barData,horizontal=True)
+
+    a, b = st.columns(2)
+    c, d = st.columns(2)
+
+    #calculate the mean
+    values = list(bars.values())
+    mean = statistics.mean(values)
+    a.metric("Mean Attendance", mean)
+
+    #calculate the median
+    median = statistics.median(values)
+    b.metric("Median Attendance", median)
+
+    #Max attended event
+    maxEvent = max(bars, key=bars.get)
+    maxAttendees = bars[maxEvent]
+    c.metric("Max attended event: "+maxEvent, maxAttendees)
+
+    #Min attended event
+    minEvent = min(bars, key=bars.get)
+    minAttendees = bars[minEvent]
+    d.metric("Min attended event: "+minEvent, minAttendees)
+
+ 
 
 
 
